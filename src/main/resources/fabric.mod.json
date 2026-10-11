@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "easykostium",
+  "version": "${version}",
+  "name": "EasyKostium",
+  "description": "Menu pod klawiszem B, z którego zmienisz trzymany przedmiot w kostium (np. walentynkowy).",
+  "authors": [],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "pl.easykostium.EasyKostium"
+    ],
+    "client": [
+      "pl.easykostium.client.EasyKostiumClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
