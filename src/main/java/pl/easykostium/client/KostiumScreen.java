@@ -28,7 +28,16 @@ public class KostiumScreen extends Screen {
 		this.addDrawableChild(ButtonWidget.builder(
 				Text.literal("Kostium walentynkowy"),
 				button -> {
-					ClientPlayNetworking.send(new KostiumSelectPayload(Kostiums.WALENTYNKOWY));
+					if (ClientPlayNetworking.canSend(KostiumSelectPayload.ID)) {
+						// serwer ma moda: prawdziwy przedmiot z bonusami
+						ClientPlayNetworking.send(new KostiumSelectPayload(Kostiums.WALENTYNKOWY));
+					} else if (this.client != null && this.client.player != null) {
+						// serwer bez moda: tylko kosmetyka u nas
+						boolean on = EasyKostiumClient.toggleLocalPink();
+						this.client.player.sendMessage(Text.literal(on
+								? "Różowy kolor włączony (widoczny tylko u Ciebie). Załóż skórzany napierśnik."
+								: "Różowy kolor wyłączony."), true);
+					}
 					this.close();
 				}
 		).dimensions(x, y, BUTTON_WIDTH, BUTTON_HEIGHT).build());

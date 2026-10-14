@@ -20,8 +20,8 @@ public final class Kostiums {
 
 	public static final String WALENTYNKOWY = "walentynkowy";
 
-	/** rgb(255, 64, 170) */
-	private static final int WALENTYNKOWY_COLOR = (255 << 16) | (64 << 8) | 170;
+	/** rgb(255, 170, 220) - jasny róż, dopasowany do zrzutu od użytkownika */
+	public static final int WALENTYNKOWY_COLOR =(255 << 16) | (170 << 8) | 220;
 
 	private Kostiums() {
 	}
